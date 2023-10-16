@@ -7,11 +7,17 @@ declare module '@mui/material/styles' {
     gray: string;
     black: string;
     red: string;
+    white: string;
+    darkGray: string;
+    lightGray: string;
   }
   interface PaletteOptions {
     gray: string;
     black: string;
     red: string;
+    white: string;
+    darkGray: string;
+    lightGray: string;
   }
 }
 
@@ -20,6 +26,9 @@ const theme = createTheme({
     gray: '#8D8D8D',
     black: '#000',
     red: '#ff3333',
+    white: '#FFF',
+    darkGray: '#444',
+    lightGray: '#D3D3D3',
   },
   components: {
     MuiInputBase: {
@@ -55,6 +64,28 @@ const theme = createTheme({
           fontSize: '12px',
           fontWeight: 500,
           lineHeight: '20px',
+        }),
+      },
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: () => ({
+          width: '105px',
+          height: '39px',
+          fontFamily: 'Poppins',
+          fontSize: '12px',
+          fontWeight: 500,
+          color: theme.palette.white,
+          backgroundColor: theme.palette.black,
+          '&:focus': {
+            outline: 'none',
+          },
+          '&:hover': {
+            backgroundColor: theme.palette.darkGray,
+          },
+          '&:disabled': {
+            backgroundColor: theme.palette.lightGray,
+          },
         }),
       },
     },
