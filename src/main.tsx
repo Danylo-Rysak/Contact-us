@@ -5,6 +5,7 @@ import { ThemeProvider } from '@mui/material';
 import App from './App.tsx';
 // Styles
 import 'assets/fonts/fonts.css';
+import 'styles/global.css';
 import theme from './styles/MUITheme';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
