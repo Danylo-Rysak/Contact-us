@@ -1,10 +1,14 @@
 // Components
-import Header from './components/layout/Header';
+import Header from 'components/layout/Header';
+import Main from 'components/layout/Main';
+// Styles
+import * as Styled from 'styles/app.styles';
 
 const App = () => (
-  <div>
+  <Styled.App>
     <Header />
-  </div>
+    <Main />
+  </Styled.App>
 );
 
 export default App;

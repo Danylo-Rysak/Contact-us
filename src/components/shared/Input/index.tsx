@@ -1,5 +1,5 @@
 // Libs
-import { ChangeEvent, FC } from 'react';
+import { ChangeEvent, FC, FocusEventHandler } from 'react';
 import { Box, useTheme } from '@mui/material';
 // Styles
 import * as Styled from './styles';
@@ -9,8 +9,10 @@ interface InputProps {
   name?: string;
   label?: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  onBlur?: FocusEventHandler<HTMLInputElement>;
   value: string;
   type?: string;
+  placeholder?: string;
   isError?: boolean;
 }
 
@@ -19,8 +21,10 @@ const Input: FC<InputProps> = ({
   name,
   label,
   onChange,
+  onBlur,
   value,
   type = 'text',
+  placeholder,
   isError = false,
 }) => {
   const theme = useTheme();
@@ -36,6 +40,8 @@ const Input: FC<InputProps> = ({
         isError={isError}
         id={id}
         name={name}
+        placeholder={placeholder}
+        onBlur={onBlur}
         onChange={onChange}
         value={value}
         type={type}

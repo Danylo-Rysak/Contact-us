@@ -1,23 +1,29 @@
 // Libs
-import { ChangeEvent, FC, ReactNode } from 'react';
-import { Checkbox as MuiCheckbox } from '@mui/material';
+import { ChangeEvent, FC } from 'react';
+import { Radio, FormControlLabel } from '@mui/material';
+// Icons
+import Checked from 'assets/icons/checkbox-checked.svg?react';
+import NotChecked from 'assets/icons/checkbox-not-checked.svg?react';
 
 interface CheckboxProps {
-  id?: string;
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
-  isChecked: boolean;
-  checkedIcon: ReactNode;
-  icon: ReactNode;
+  value: string;
+  onChange: (e: ChangeEvent) => void;
+  label: string;
 }
 
-const Checkbox: FC<CheckboxProps> = ({ id, onChange, isChecked, checkedIcon, icon }) => {
+const Checkbox: FC<CheckboxProps> = ({ value, onChange, label }) => {
   return (
-    <MuiCheckbox
-      id={id}
-      onChange={onChange}
-      checked={isChecked}
-      icon={icon}
-      checkedIcon={checkedIcon}
+    <FormControlLabel
+      value={value}
+      control={
+        <Radio
+          icon={<NotChecked />}
+          checkedIcon={<Checked />}
+          value={value}
+          onChange={onChange}
+        />
+      }
+      label={label}
     />
   );
 };

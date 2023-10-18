@@ -1,10 +1,24 @@
 // Libs
 import { FC } from 'react';
-import { Button as MuiButton, ButtonProps } from '@mui/material';
+import { Button as MuiButton, SxProps } from '@mui/material';
 
-const Button: FC<ButtonProps> = ({ title, disabled = false, onClick }) => {
+interface ButtonProps {
+  title: string;
+  disabled?: boolean;
+  onClick?: () => void;
+  styles?: SxProps;
+}
+
+const Button: FC<ButtonProps> = ({ title, disabled = false, onClick, styles }) => {
   return (
-    <MuiButton onClick={onClick} disabled={disabled}>
+    <MuiButton
+      title={title}
+      onClick={onClick}
+      disabled={disabled}
+      sx={{
+        ...styles,
+      }}
+    >
       {title}
     </MuiButton>
   );
