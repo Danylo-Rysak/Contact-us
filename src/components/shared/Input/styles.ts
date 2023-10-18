@@ -5,7 +5,7 @@ export const Field = styled(Input)<{ theme: Theme; isValue: boolean; isError: bo
   border-bottom: 1px solid ${({ theme }) => theme.palette.gray};
 
   ${({ isValue, isError, theme }) => {
-    if (isValue) {
+    if (isValue && !isError) {
       return css`
         border-bottom: 1px solid ${theme.palette.black};
       `;
@@ -26,7 +26,7 @@ export const Label = styled(InputLabel)<{
   color: ${({ theme }) => theme.palette.gray};
 
   ${({ isValue, isError, theme }) => {
-    if (isValue) {
+    if (isValue && !isError) {
       return css`
         color: ${theme.palette.black};
       `;
