@@ -1,5 +1,5 @@
 // Libs
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect } from 'react';
 // Components
 import BurgerMenu from './BurgerMenu';
 import MenuList from './MenuList';
@@ -11,9 +11,12 @@ import Menu from 'assets/icons/menu.svg?react';
 // Styles
 import * as Styled from './styles';
 
-const Header: FC = () => {
-  const [isOpenMenu, setIsOpenMenu] = useState<boolean>(false);
+interface HeaderProps {
+  isOpenMenu: boolean;
+  setIsOpenMenu: (isOpenMenu: boolean) => void;
+}
 
+const Header: FC<HeaderProps> = ({ isOpenMenu, setIsOpenMenu }) => {
   const isDesktop = useDesktop();
 
   useEffect(() => {

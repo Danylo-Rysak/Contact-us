@@ -18,7 +18,7 @@ const useDesktop = () => {
     };
   }, []);
 
-  return windowWidth >= MIN_DESKTOP_WIDTH;
+  return windowWidth > MIN_DESKTOP_WIDTH;
 };
 
 export default useDesktop;
