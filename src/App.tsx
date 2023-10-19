@@ -8,6 +8,7 @@ import Footer from 'components/layout/Footer';
 import * as Styled from 'styles/app.styles';
 
 const App = () => {
+  // State for manage BurgerMenu
   const [isOpenBurgerMenu, setIsOpenBurgerMenu] = useState<boolean>(false);
   return (
     <Styled.App>

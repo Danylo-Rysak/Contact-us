@@ -10,9 +10,11 @@ import { emailValidation } from 'utils/validations/email-validation';
 import * as Styled from './styles';
 
 const Subscribe: FC = () => {
+  // Use formik for one input isn't good, so I use useState for control input value
   const [email, setEmail] = useState<string>('');
   const [isOpenToastify, setIsOpenToastify] = useState<boolean>(false);
 
+  // But use yup for validation cause it's convenient
   const isValidEmail = emailValidation.isValidSync({ email });
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -23,6 +25,7 @@ const Subscribe: FC = () => {
     setIsOpenToastify(false);
   };
 
+  // The user receives 2 different notifications, it depends on whether the email is valid
   const toastify = useToastify(
     isOpenToastify,
     isValidEmail ? 'Successfully subscribe' : 'Email is not valid!',
@@ -32,6 +35,7 @@ const Subscribe: FC = () => {
 
   const handleSendEmail = () => {
     setIsOpenToastify(true);
+    // Reset form after sent
     if (isValidEmail) {
       setEmail('');
     }
