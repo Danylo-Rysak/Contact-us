@@ -27,8 +27,9 @@ const Form: FC = () => {
       message: '',
     },
     validationSchema: validationForm,
-    onSubmit: (values) => {
-      console.log('hello', values);
+    onSubmit: () => {
+      setIsOpenToastify(true);
+      formik.resetForm();
     },
   });
 
@@ -45,7 +46,6 @@ const Form: FC = () => {
 
   const handleSendForm = () => {
     formik.handleSubmit();
-    setIsOpenToastify(true);
   };
 
   const buttonStyles = Styled.getButtonStyles();
