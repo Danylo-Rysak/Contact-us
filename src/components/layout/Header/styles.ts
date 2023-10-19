@@ -7,9 +7,9 @@ export const Header = styled('header')`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 40px 100px 0 100px;
+  padding: 40px 100px 0 100px;
   @media (max-width: ${MIN_DESKTOP_WIDTH}px) {
-    margin: 29px 20px 30px 20px;
+    padding: 29px 20px 30px 20px;
   }
 `;
 
