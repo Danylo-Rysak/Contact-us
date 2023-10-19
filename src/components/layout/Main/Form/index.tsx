@@ -39,7 +39,7 @@ const Form: FC = () => {
 
   const toastify = useToastify(
     isOpenToastify,
-    'Successfully send',
+    'Successfully sent',
     handleCloseToastify,
     'success'
   );
