@@ -3,7 +3,8 @@ import { FC } from 'react';
 // Styles
 import * as Styled from './styles';
 // Helpers
-import { contactInfo, links } from './helpers';
+import { links } from './helpers';
+import { contactInfo } from 'utils/helpers';
 
 const ContactInfo: FC = () => {
   return (
@@ -13,10 +14,10 @@ const ContactInfo: FC = () => {
         <Styled.Subtitle>Say something to start a live chat!</Styled.Subtitle>
       </div>
       <Styled.List>
-        {contactInfo.map(({ icon, info }, index) => (
+        {contactInfo.map(({ icon, subtitle }, index) => (
           <Styled.Item key={index}>
             {icon}
-            <Styled.Name>{info}</Styled.Name>
+            <Styled.Name>{subtitle}</Styled.Name>
           </Styled.Item>
         ))}
       </Styled.List>

@@ -84,7 +84,8 @@ const theme = createTheme({
             backgroundColor: theme.palette.darkGray,
           },
           '&:disabled': {
-            backgroundColor: theme.palette.lightGray,
+            color: theme.palette.white,
+            backgroundColor: theme.palette.black,
           },
         }),
       },
