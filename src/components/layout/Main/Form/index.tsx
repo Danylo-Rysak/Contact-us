@@ -15,8 +15,10 @@ import { validationForm } from 'utils/validations/form-validation';
 import * as Styled from './styles';
 
 const Form: FC = () => {
+  // State for manage toastify
   const [isOpenToastify, setIsOpenToastify] = useState<boolean>(false);
 
+  // I used useFormik cause it good hook to collect data
   const formik = useFormik<FormValues>({
     initialValues: {
       firstName: '',
@@ -29,6 +31,7 @@ const Form: FC = () => {
     validationSchema: validationForm,
     onSubmit: () => {
       setIsOpenToastify(true);
+      // We reset our form after sent
       formik.resetForm();
     },
   });
@@ -48,12 +51,15 @@ const Form: FC = () => {
     formik.handleSubmit();
   };
 
+  // We can't stylize Button from MUI with styled, so I had to use arrow function and got it from Styled
   const buttonStyles = Styled.getButtonStyles();
 
   return (
     <>
       {toastify}
       <Styled.Form>
+        {/*I prefer to write each of inputs, i don't like maping in this case cause sometimes*/}
+        {/*some input has additional props*/}
         <Styled.InputsGroup>
           <Input
             id="firstName"
@@ -98,6 +104,8 @@ const Form: FC = () => {
         </Styled.InputsGroup>
         <Styled.SelectWrapper>
           <Styled.SelectTitle>Select Subject?</Styled.SelectTitle>
+          {/*In this case also, yes I understand that in this context maping looks logical,*/}
+          {/*but I try to demonstrate that I'm thinking about logic extension*/}
           <Styled.CheckboxGroup
             id="subject"
             name="subject"

@@ -1,7 +1,8 @@
 // Libs
 import { createTheme, Theme } from '@mui/material';
 
-// color override declaration
+// color override declaration, the best to keep here with my experience
+//  I use only here this palette cause we have a lot of difference color (design trouble)
 declare module '@mui/material/styles' {
   export interface Palette {
     gray: string;
@@ -21,6 +22,7 @@ declare module '@mui/material/styles' {
   }
 }
 
+// Classic overriding MUI components
 const theme = createTheme({
   palette: {
     gray: '#8D8D8D',

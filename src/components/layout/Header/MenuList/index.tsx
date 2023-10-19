@@ -21,6 +21,7 @@ const MenuList: FC = () => {
     'error'
   );
 
+  // We have only one page, so when user click on other, they get toastify
   const handleChangePage = (name: string) => () => {
     if (name !== 'Contact') {
       setIsOpenToastify(true);
@@ -33,6 +34,7 @@ const MenuList: FC = () => {
       <Styled.List>
         {menuItems.map(({ name, isIcon }, index) => (
           <Styled.Item key={index} onClick={handleChangePage(name)}>
+            {/*Active item has other styles*/}
             <Styled.Name isActive={name === 'Contact'}>{name}</Styled.Name>
             {isIcon && <Styled.ArrowDownIcon />}
           </Styled.Item>

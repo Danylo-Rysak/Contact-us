@@ -12,6 +12,7 @@ import BinWhite from 'assets/icons/bin-white.svg?react';
 import * as Styled from './styles';
 
 const IconsGroup: FC = () => {
+  // State for manage toastify
   const [isOpenToastify, setIsOpenToastify] = useState<boolean>(false);
 
   const isDesktop = useDesktop();
@@ -20,6 +21,7 @@ const IconsGroup: FC = () => {
     setIsOpenToastify(false);
   };
 
+  // This hook we use that demonstrate this functionality is in development, when user try to click
   const toastify = useToastify(
     isOpenToastify,
     'This functionality is in development',
@@ -27,12 +29,14 @@ const IconsGroup: FC = () => {
     'error'
   );
 
+  // User try to click and get toastify
   const handleNavigate = () => {
     setIsOpenToastify(true);
   };
   return (
     <>
       {toastify}
+      {/*I know that we can change color of svg with css, but in this case we have trouble with these svg, so such simple resolve*/}
       <Styled.IconsGroup>
         <Styled.Icon onClick={handleNavigate}>
           {isDesktop ? <ProfileBlack /> : <ProfileWhite />}
